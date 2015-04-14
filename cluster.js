@@ -27,7 +27,7 @@ if (cluster.isMaster) {
 	let responder = zmq.socket('rep').connect('ipc://filer-dealer.ipc');
 	responder.on('message', function(data) {
 		console.log('received request ' + data);
-		responser.send(JSON.stringify({
+		responder.send(JSON.stringify({
 			processId: process.pid			
 		}));
 	});
